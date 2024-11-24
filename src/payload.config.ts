@@ -61,7 +61,9 @@ export default buildConfig({
   editor: defaultLexical,
   db: sqliteAdapter({
     client: {
-      url: process.env.DATABASE_URI || '',
+      url: process.env.DATABASE_SYNC_URI || '',
+      // syncUrl: process.env.DATABASE_SYNC_URI || '',
+      authToken: process.env.DATABASE_AUTH_TOKEN || '',
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users],
